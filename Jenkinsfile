@@ -20,6 +20,7 @@ pipeline {
             }
         }
       }
+    }
 
         //build using docker file
         /*stage('Build docker image') {
