@@ -20,10 +20,7 @@ pipeline {
             }
         }
       }
-
-
         //build using docker file
-        agent any
         stage('Build docker image') {
             steps {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
