@@ -21,11 +21,22 @@ pipeline {
                 sh 'npm install'
             }
         }
-        /*stage('Test') {
+      /*  stage('Test') {
             steps {
                 sh 'node ./js/test.js'
             }
         }*/
+        stage('Test') {
+          agent {
+            docker {
+              image 'node:6-alpine'
+              args '-p 3000:3000'
+            }
+          }
+            steps {
+                sh 'node ./js/test.js'
+            }
+        }
       }
       /*  //build using docker file
         stage('Build docker image') {
