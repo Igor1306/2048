@@ -37,7 +37,6 @@ pipeline {
                 sh 'node ./js/test.js'
             }
         }
-      }
         //build using docker file
         stage('Build docker image') {
             steps {
@@ -58,4 +57,5 @@ pipeline {
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }
+    }
 }
