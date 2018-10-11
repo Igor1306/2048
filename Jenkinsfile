@@ -21,8 +21,8 @@ pipeline {
           sh 'node /js/test.js'
         }
       }
-
     }
+  }
     /*agent docker {
         image 'node:6-alpine'
         args '-p 3000:3000'
@@ -60,6 +60,3 @@ pipeline {
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }*/
-
-    }
-}
