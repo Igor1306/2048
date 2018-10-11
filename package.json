@@ -1,0 +1,13 @@
+{
+  "name": "2048",
+  "version" : "1.0.0",
+  "description" : "Test",
+  "author": "Igor",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}

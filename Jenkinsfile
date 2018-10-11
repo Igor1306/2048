@@ -1,6 +1,29 @@
 pipeline {
-    agent {
-      docker {
+    agent any
+    stages {
+      stage('Build') {
+        agent {
+          docker {
+            image 'node:6-alpine'
+          }
+        }
+        steps {
+          sh 'nmp install'
+        }
+      }
+      stage('Test') {
+        agent {
+          docker {
+            image 'node:6-alpine'
+          }
+        }
+        steps {
+          sh 'node /js/test.js'
+        }
+      }
+
+    }
+    /*agent docker {
         image 'node:6-alpine'
         args '-p 3000:3000'
       }
@@ -10,11 +33,12 @@ pipeline {
         steps {
           sh 'npm install'
         }
+      stage('Test') {
+        steps {
+          sh ''
+        }
       }
-    
-
-
-
+      }*/
 
         //build using docker file
         /*stage('Build docker image') {
