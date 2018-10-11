@@ -1,44 +1,26 @@
 pipeline {
-  agent any
-    stages {
-      stage('Build') {
-        agent {
-          docker {
+    agent {
+        docker {
             image 'node:6-alpine'
             args '-p 3000:3000'
-          }
         }
-        steps {
-          sh 'nmp install'
-        }
-      }
-      stage('Test') {
-        agent {
-          docker {
-            image 'node:6-alpine'
-          }
-        }
-        steps {
-          sh 'node /js/test.js'
-        }
-      }
     }
-  }
+    environment {
+        CI = 'true'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'node ./js/test.js'
+            }
+        }
+      }
 
-    /*  agent {
-          docker {
-              image 'node:6-alpine'
-              args '-p 3000:3000'
-          }
-      }
-      stages {
-          stage('Build') {
-              steps {
-                  sh 'npm install'
-              }
-          }
-      }
-  }*/
         //build using docker file
         /*stage('Build docker image') {
             steps {
