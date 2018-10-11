@@ -1,26 +1,33 @@
 pipeline {
-    agent {
+
+    /*agent {
         docker {
             image 'node:6-alpine'
             args '-p 3000:3000'
         }
-    }
-    environment {
+    }*/
+  /*  environment {
         CI = 'true'
-    }
+    }*/
     stages {
         stage('Build') {
+          agent {
+            docker {
+              image 'node:6-alpine'
+              args '-p 3000:3000'
+            }
+          }
             steps {
                 sh 'npm install'
             }
         }
-        stage('Test') {
+        /*stage('Test') {
             steps {
                 sh 'node ./js/test.js'
             }
-        }
+        }*/
       }
-        //build using docker file
+      /*  //build using docker file
         stage('Build docker image') {
             steps {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
@@ -39,5 +46,5 @@ pipeline {
           sh 'docker login -u krivchenko1306 -p q13069715q'
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
-      }
+      }*/
 }
