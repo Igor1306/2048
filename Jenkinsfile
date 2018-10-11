@@ -38,7 +38,7 @@ pipeline {
             }
         }
       }
-      /*  //build using docker file
+        //build using docker file
         stage('Build docker image') {
             steps {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
@@ -57,5 +57,5 @@ pipeline {
           sh 'docker login -u krivchenko1306 -p q13069715q'
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
-      }*/
+      }
 }
