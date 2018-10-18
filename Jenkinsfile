@@ -10,7 +10,7 @@ pipeline {
           }
             steps {
                 sh 'npm install'
-                telegramSend'Helloworld'
+                sh 'telegramSend'Helloworld''
             }
         }
         stage('Test') {
