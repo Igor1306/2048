@@ -43,5 +43,13 @@ pipeline {
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }
+
+        stage ('delete old container') {
+          node('node1') {
+              steps {
+                sh 'docker rm $(docker ps -a -f status=exited -q)'
+              }
+          }
+        }
     }
 }
