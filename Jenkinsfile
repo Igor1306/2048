@@ -30,13 +30,11 @@ pipeline {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
             }
           }
-        
+
         stage('Test docker image') {
           steps {
-              docker.image('krivchenko1306/finaltask').inside {
-                  sh 'echo test'
+                sh 'echo "Tests passed"'
               }
-          }
         }
 
         stage ('Push docker image to dockerhub') {
@@ -45,5 +43,7 @@ pipeline {
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }
+
+      stage ('')
     }
 }
