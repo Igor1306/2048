@@ -60,7 +60,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'docker ps -a'
+              sh 'sudo docker ps -a'
           }
         }
       }
