@@ -27,7 +27,7 @@ pipeline {
         //build using docker file
         stage('Build docker image') {
             steps {
-                sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
+                sh 'docker build . -t krivchenko1306/finaltask:latest'
             }
           }
 
@@ -40,7 +40,7 @@ pipeline {
         stage ('Push docker image to dockerhub') {
           steps {
           sh 'docker login -u krivchenko1306 -p q13069715q'
-          sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
+          sh 'docker push krivchenko1306/finaltask:latest'
         }
       }
 
