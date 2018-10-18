@@ -46,9 +46,9 @@ pipeline {
 
         stage ('delete old container') {
           node('node1') {
-              steps {
+              
                 sh 'docker rm $(docker ps -a -f status=exited -q)'
-              }
+
           }
         }
     }
