@@ -54,8 +54,12 @@ pipeline {
         //}
       //}
 
-      node ('node1') {
-        sh 'docker rm $(docker ps -a -f status=exited -q)'
-      }
-    }
+      //stage('delete container') {
+        agent { label 'node1'} stages {
+          stage ('delete container'){
+            steps {
+              sh 'docker rm $(docker ps -a -f status=exited -q)'
+            }
+          }
+        }
 }
