@@ -60,7 +60,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'docker pull krivchenko1306/finaltask'
+              sh 'sudo docker pull krivchenko1306/finaltask'
               //sh 'sudo docker ps -a'
           }
         }
