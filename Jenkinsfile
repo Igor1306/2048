@@ -51,9 +51,11 @@ pipeline {
           steps {
               //sh 'sudo docker stop $(sudo docker ps -a -q)'
               //sh 'sudo docker rm $(sudo docker ps -a -q)'
+
+              sh 'sudo docker container prune -f'
+
               //sh 'sudo docker rm -vf $(sudo docker ps -a -q)'
-              //sh 'sudo docker container prune -f'
-              sh 'sudo docker rmi -f $(sudo docker images -a -q)'
+              //sh 'sudo docker rmi -f $(sudo docker images -a -q)'
           }
         }
 
