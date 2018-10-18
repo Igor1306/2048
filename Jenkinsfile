@@ -44,23 +44,14 @@ pipeline {
         }
       }
 
-        //stage ('delete old container') {
-        //  steps {
-        //  node('node1') {
-            //  steps {
-          //      sh 'docker rm $(docker ps -a -f status=exited -q)'
-            //  }
-          //}
-        //}
-      //}
-
       //stage('delete container') {
-      stage('Test on Linux') {
+      stage('') {
           agent {
               label 'node1'
           }
           steps {
-              sh 'sudo docker pull krivchenko1306/finaltask'
+              sh 'sudo docker run krivchenko1306/finaltask'
+              sh 'sudo docker ps'
               //sh 'sudo docker ps -a'
           }
         }
