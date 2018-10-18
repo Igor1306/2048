@@ -44,15 +44,22 @@ pipeline {
         }
       }
 
-      //stage('delete container') {
-      stage('Test on Linux') {
+      stage('Remove containers') {
           agent {
               label 'node1'
           }
           steps {
-              sh 'sudo docker run krivchenko1306/finaltask:$GIT_COMMIT'
               sh 'sudo docker ps'
-              //sh 'sudo docker ps -a'
+          }
+        }
+
+      stage('Run new container') {
+          agent {
+              label 'node1'
+          }
+          steps {
+              sh 'sudo docker run krivchenko1306/finaltask:$GIT_COMMIT &'
+              sh 'sudo docker ps'
           }
         }
       }
