@@ -43,7 +43,5 @@ pipeline {
           sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }
-
-      stage ('')
     }
 }
