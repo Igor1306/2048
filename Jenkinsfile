@@ -27,7 +27,7 @@ pipeline {
         //build using docker file
         stage('Build docker image') {
             steps {
-                sh 'docker build . -t krivchenko1306/finaltask:latest'
+                sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
             }
           }
 
@@ -40,17 +40,17 @@ pipeline {
         stage ('Push docker image to dockerhub') {
           steps {
           sh 'docker login -u krivchenko1306 -p q13069715q'
-          sh 'docker push krivchenko1306/finaltask:latest'
+          sh 'docker push krivchenko1306/finaltask:$GIT_COMMIT'
         }
       }
 
       //stage('delete container') {
-      stage('') {
+      stage('Test on Linux') {
           agent {
               label 'node1'
           }
           steps {
-              sh 'sudo docker run krivchenko1306/finaltask'
+              sh 'sudo docker run krivchenko1306/finaltask:$GIT_COMMIT'
               sh 'sudo docker ps'
               //sh 'sudo docker ps -a'
           }
