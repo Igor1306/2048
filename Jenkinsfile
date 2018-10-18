@@ -63,7 +63,7 @@ pipeline {
           }
           steps {
               sh 'sudo docker run -p 8081:8081 -d krivchenko1306/finaltask:$GIT_COMMIT'
-              sh 'sudo docker p'
+              sh 'sudo docker ps'
           }
         }
       }
