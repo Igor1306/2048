@@ -49,7 +49,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'sudo docker ps'
+              sh 'sudo docker rm -vf $(sudo docker ps -a -q)'
           }
         }
 
