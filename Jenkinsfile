@@ -44,14 +44,18 @@ pipeline {
         }
       }
 
-        stage ('delete old container') {
-          steps {
-          node('node1') {
+        //stage ('delete old container') {
+        //  steps {
+        //  node('node1') {
             //  steps {
-                sh 'docker rm $(docker ps -a -f status=exited -q)'
+          //      sh 'docker rm $(docker ps -a -f status=exited -q)'
             //  }
-          }
-        }
+          //}
+        //}
+      //}
+
+      node ('node1') {
+        sh 'docker rm $(docker ps -a -f status=exited -q)'
       }
     }
 }
