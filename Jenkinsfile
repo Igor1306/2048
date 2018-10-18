@@ -23,7 +23,7 @@ pipeline {
                 sh 'node ./js/test.js'
             }
         }
-        //build using docker file
+        //building using docker file
         stage('Build docker image') {
             steps {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
