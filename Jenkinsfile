@@ -55,13 +55,13 @@ pipeline {
       //}
 
       //stage('delete container') {
-        agent { label 'node1'} stages {
-          stage ('delete container'){
-            steps {
-              sh 'docker rm $(docker ps -a -f status=exited -q)'
-            }
+      stage('Test on Linux') {
+          agent {
+              label 'node1'
+          }
+          steps {
+              sh 'docker ps -a'
           }
         }
       }
     }
-  
