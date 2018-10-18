@@ -61,7 +61,7 @@ pipeline {
           }
           steps {
               //sh 'docker rm $(docker ps -a -f status=exited -q)'
-              sh 'docker ps -a'
+              sh 'sudo docker ps -a'
           }
         }
       }
