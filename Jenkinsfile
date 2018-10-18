@@ -58,7 +58,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'sudo docker run krivchenko1306/finaltask:$GIT_COMMIT &'
+              sh 'sudo docker run -p 8081:8081 -d krivchenko1306/finaltask:$GIT_COMMIT'
               sh 'sudo docker ps'
           }
         }
