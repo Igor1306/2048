@@ -26,7 +26,7 @@ pipeline {
 
         stage('telega') {
           steps{
-            telegramSend 'hello'
+            sh 'telegramSend 'hello''
           }
         }
 
