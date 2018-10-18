@@ -26,14 +26,14 @@ pipeline {
         //build using docker file
         stage('Build docker image') {
             steps {
-                sh 'sudo docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
+                sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
                 //sh 'docker build --pull=true -t krivchenko.com:test:$GIT_COMMIT .'
             }
           }
 
         stage('Test docker image') {
           steps {
-              sh 'sudo docker run -itd krivchenko1306/finaltask:$GIT_COMMIT'
+              sh 'docker run -itd krivchenko1306/finaltask:$GIT_COMMIT'
           }
         }
 
