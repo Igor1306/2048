@@ -30,7 +30,7 @@ pipeline {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
             }
           }
-
+        // 1
         stage('Test docker image') {
           steps {
               docker.image('krivchenko1306/finaltask').inside {
