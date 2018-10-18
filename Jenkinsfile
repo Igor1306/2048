@@ -60,7 +60,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'sudo docker rm $(sudo docker ps -a -f status=exited -q)'
+              sh 'docker pull krivchenko1306/finaltask'
               //sh 'sudo docker ps -a'
           }
         }
