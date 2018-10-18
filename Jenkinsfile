@@ -49,7 +49,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              //sh 'sudo docker stop $(sudo docker ps -a -q)'
+              sh 'sudo docker stop $(sudo docker ps -a -q)'
               //sh 'sudo docker rm $(sudo docker ps -a -q)'
 
               sh 'sudo docker container prune -f'
