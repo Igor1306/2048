@@ -60,7 +60,7 @@ pipeline {
               label 'node1'
           }
           steps {
-              sh 'docker rm $(docker ps -a -f status=exited -q)'
+              sh 'sudo docker rm $(docker ps -a -f status=exited -q)'
           }
         }
       }
