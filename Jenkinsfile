@@ -67,7 +67,7 @@ pipeline {
           }
         }
       }
-    /*  post {
+      post {
         always {
             echo 'I will always say Hello again!'
 
@@ -76,6 +76,6 @@ pipeline {
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
 
               }
-            }*/
+            }
 
     }
