@@ -9,8 +9,7 @@ pipeline {
             }
           }
             steps {
-                sh 'npm install'
-                sh 'telegramSend'Helloworld''
+              sh 'npm install'
             }
         }
         stage('Test') {
@@ -23,6 +22,12 @@ pipeline {
             steps {
                 sh 'node ./js/test.js'
             }
+        }
+
+        stage('telega') {
+          steps{
+            telegramSend'hello'
+          }
         }
 
         stage('Build docker image') {
