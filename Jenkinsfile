@@ -10,6 +10,7 @@ pipeline {
           }
             steps {
                 sh 'npm install'
+                telegramSend 'Hello world'
             }
         }
         stage('Test') {
@@ -24,7 +25,6 @@ pipeline {
             }
         }
 
-        //build using docker file
         stage('Build docker image') {
             steps {
                 sh 'docker build . -t krivchenko1306/finaltask:$GIT_COMMIT'
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Test docker image') {
           steps {
-                sh 'echo "Tests passed"'
+                sh 'echo "there should be tests :D"'
               }
         }
 
@@ -50,8 +50,6 @@ pipeline {
           }
           steps {
               sh 'sudo docker stop $(sudo docker ps -a -q)'
-              //sh 'sudo docker rm $(sudo docker ps -a -q)'
-
               sh 'sudo docker container prune -f'
 
               //sh 'sudo docker rm -vf $(sudo docker ps -a -q)'
